@@ -1,0 +1,23 @@
+@{
+    ViewBag.Title = "Chatbot";
+}
+
+<div class="card">
+    <div class="card-header bg-info text-white">
+        <h5>Check Room Availability with Alisa</h5>
+    </div>
+    <div class="card-body">
+        <form method="post" class="mb-3">
+            <div class="mb-3">
+                <input name="userMessage" class="form-control" placeholder="Ask like: 'Will it be available to get 2 rooms in yyyy/MM/dd to yyyy/MM/dd'" />
+            </div>
+            <button type="submit" class="btn btn-primary">Ask</button>
+        </form>
+
+        @if (ViewBag.UserMessage != null)
+        {
+            <p><strong>You:</strong> @ViewBag.UserMessage</p>
+            <p><strong>Alisa:</strong> @ViewBag.Response</p>
+        }
+    </div>
+</div>

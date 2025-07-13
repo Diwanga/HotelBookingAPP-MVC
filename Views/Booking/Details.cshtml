@@ -1,0 +1,39 @@
+@model HotelBookingAPP.Models.Booking
+@{
+    ViewBag.Title = "Booking Details";
+}
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        Booking Details
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">Guest Name</dt>
+            <dd class="col-sm-9">@Model.GuestName</dd>
+
+            <dt class="col-sm-3">Room</dt>
+            <dd class="col-sm-9">@Model.Room?.RoomType</dd>
+
+            <dt class="col-sm-3">Check-In</dt>
+            <dd class="col-sm-9">@Model.CheckIn.ToShortDateString()</dd>
+
+            <dt class="col-sm-3">Check-Out</dt>
+            <dd class="col-sm-9">@Model.CheckOut.ToShortDateString()</dd>
+
+            <dt class="col-sm-3">Total Price</dt>
+            <dd class="col-sm-9">Rs. @Model.TotalPrice</dd>
+
+            <dt class="col-sm-3">Special Requests</dt>
+            <dd class="col-sm-9">
+                <ul class="list-group">
+                    @foreach (var req in Model.SpecialRequests)
+                    {
+                        <li class="list-group-item">@req.RequestText</li>
+                    }
+                </ul>
+            </dd>
+        </dl>
+        <a href="/Booking" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

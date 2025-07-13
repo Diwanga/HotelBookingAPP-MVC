@@ -1,0 +1,36 @@
+@model HotelBookingAPP.Models.Room
+@{
+    ViewBag.Title = Model.Id == 0 ? "Create Room" : "Edit Room";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<form asp-action="@(Model.Id == 0 ? "Create" : "Edit")" method="post" class="row g-3">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="col-md-6">
+        <label class="form-label">Room Type</label>
+        <input asp-for="RoomType" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Capacity</label>
+        <input asp-for="Capacity" type="number" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Price Per Day (Rs.)</label>
+        <input asp-for="PricePerDay" type="number" class="form-control" />
+    </div>
+
+    <div class="col-md-6 mt-4">
+        <div class="form-check">
+            <input asp-for="IsAvailable" class="form-check-input" />
+            <label class="form-check-label">Available</label>
+        </div>
+    </div>
+
+    <div class="col-12 mt-3">
+        <button type="submit" class="btn btn-success">Save Room</button>
+    </div>
+</form>

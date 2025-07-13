@@ -1,0 +1,37 @@
+@model HotelBookingAPP.Models.Booking
+@{
+    ViewBag.Title = "Create Booking";
+}
+@Html.ValidationSummary(true, "", new { @class = "alert alert-danger" })
+
+<h2>Create Booking</h2>
+<form asp-action="Create" method="post" class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label">Guest Name</label>
+        <input asp-for="GuestName" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Room</label>
+        <select asp-for="RoomId" asp-items="@(new SelectList(ViewBag.Rooms, "Id", "RoomType"))" class="form-select"></select>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Check-In</label>
+        <input asp-for="CheckIn" type="date" class="form-control" />
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Check-Out</label>
+        <input asp-for="CheckOut" type="date" class="form-control" />
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Special Request</label>
+        <input name="specialRequestText" class="form-control" />
+    </div>
+
+    <div class="col-12 mt-3">
+        <button type="submit" class="btn btn-success">Save Booking</button>
+    </div>
+</form>

@@ -1,0 +1,35 @@
+@model List<HotelBookingAPP.Models.Room>
+@{
+    ViewBag.Title = "Rooms";
+}
+
+<h2>Rooms</h2>
+<a class="btn btn-primary mb-3" href="/Room/Create">Add Room</a>
+
+<table class="table table-bordered table-hover">
+    <thead class="table-dark">
+    <tr>
+        <th>ID</th>
+        <th>Room Name</th>
+        <th>Capacity</th>
+        <th>Price (Rs.)</th>
+        <th>Available</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var room in Model)
+    {
+        <tr>
+            <td>@room.Id</td>
+            <td>@room.RoomType</td>
+            <td>@room.Capacity</td>
+            <td>@room.PricePerDay</td>
+            <td>@(room.IsAvailable ? "Yes" : "No")</td>
+            <td>
+                <a class="btn btn-sm btn-warning" href="/Room/Edit/@room.Id">Edit</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
